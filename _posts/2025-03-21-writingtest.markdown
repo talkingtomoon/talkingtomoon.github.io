@@ -2,7 +2,7 @@
 layout: post
 title: 신입생글쓰기평가 제출물
 date: 2025-03-19 17:00:00 +0900
-category: oddments
+category: Humanities
 ---
 # 주제: 처벌에서 반성을 고려하는 것은 옳은가
 
