@@ -18,13 +18,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Monos
-email: ejjoo7994@gmail.com
+title: git_ece
+email: statusquo@snu.ac.kr
 description: >- # this means to ignore newlines until "baseurl:"
-  Themed by ejjoo
+  snu_ece 25C
 # baseurl: "/" # the subpath of your site, e.g. /blog
-# url: "https://talkingtomoon.github.io/dohan-github-page/" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: ejjoo
+# url: "https://talkingtomoon.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: talkingtomoon
 highlighter: rouge
 svg:
   optimize: true
@@ -56,3 +56,9 @@ tag_dir: tag/
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+#서버 생성 오류 방지 by gpt
+log_level: "debug"
+permalink: pretty
+encoding: utf-8
+
