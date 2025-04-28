@@ -9,8 +9,8 @@ Overleaf는 LaTeX를 활용하는 클라우드 기반 도구(다운로드 필요
 
 이번 학기 화실보고서를 Overleaf에서 작성하고 있다. 예시로 아래는 방금 작성한 헤스의 법칙 실험 예비보고서이다.
 
-{% highlight ruby %}
-패키지나 단 설정 등은 생략함
+'''ruby
+#패키지나 단 설정 등은 생략함
 \begin{document}
 \fontsize{8.6}{10}\selectfont
 
@@ -175,6 +175,6 @@ Safety Data Sheets, 검색어: Sunset Yellow FCF, Brilliant Blue FCF, ethanol, \
 \end{thebibliography}
 
 \end{document}
-{% endhighlight %}
+'''
 
 이 코드를 컴파일하면 [요런 보고서 pdf](/assets/hesslawprep.pdf)를 얻을 수 있다!
