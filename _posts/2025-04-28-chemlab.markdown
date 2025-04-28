@@ -1,0 +1,180 @@
+---
+layout: post
+title: Overleaf에서 화실보고서 쓰기
+date: 2025-04-28 17:00:00 +0900
+category: Chemistry
+---
+
+Overleaf는 LaTeX를 활용하는 클라우드 기반 도구(다운로드 필요없이 인터넷만 되면 사용가능!)이다. LaTeX 시스템은 수식 입력이 간편하고, 학술 글쓰기에 쓰기 좋은 다양한 서식들이 만들어져 있어 활용하기 좋다.
+
+이번 학기 화실보고서를 Overleaf에서 작성하고 있다. 예시로 아래는 방금 작성한 헤스의 법칙 실험 예비보고서이다.
+
+'''ruby
+패키지나 단 설정 등은 생략함
+\begin{document}
+\fontsize{8.6}{10}\selectfont
+
+\title{헤스의 법칙 - 예비보고서}
+
+\author{전현태 \\ 전기·정보공학부}
+
+\setcounter{Maxaffil}{0}
+\renewcommand\Affilfont{\itshape\small}
+
+\date{}  
+\maketitle
+
+\section{실험 목적}
+\begin{itemize}
+    \item 등압 조건에서 열화학 반응을 진행시켜 반응의 엔탈피를 측정한다.
+    \item 엔탈피가 상태 함수임을 확인하여 헤스의 법칙을 이해한다.
+\end{itemize}
+
+\section{이론적 배경\cite{phychem}}
+
+\subsection{반응열}
+
+반응열은 화학 반응이 일어날 때 흡수되거나 방출되는 열의 양을 의미하는 값이다. 반응열은 반응물과 생성물의 엔탈피 차이로 구해진다. 반응이 흡열 반응이라면 열을 흡수하고, 방출 반응이라면 열을 방출한다.
+
+반응열은 다음과 같은 수식으로 나타낼 수 있다:
+
+\[
+|Q| = \Delta H = \sum H_{\text{products}} - \sum H_{\text{reactants}}
+\]
+
+여기서 \( \Delta H \)는 반응열이며, \( H_{\text{products}} \)는 생성물의 엔탈피, \( H_{\text{reactants}} \)는 반응물의 엔탈피이다.\\
+열의 단위는 일반적으로 Joule(J) 또는 kJ로 사용된다. 엔탈피 변화로 표현되는 반응열은 등온, 등압 조건에서 측정된다.
+
+\subsection{열용량}
+
+열용량은 물질이 온도를 1도 상승시키는 데 필요한 열의 양을 나타내는 물리적 성질이며, 값은 아래와 같다.
+
+\[
+C = m \cdot c
+\]
+
+여기서 \( C \)는 열용량, \( m \)은 물질의 질량, \( c \)는 물질의 비열이다. 비열은 물질이 온도 변화를 겪을 때 단위 질량당 흡수하거나 방출하는 열의 양을 의미한다.\\
+계의 열용량을 알고 있으면, 물질에 의해 흡수되거나 방출된 열의 양을 계의 온도 변화로부터 정확하게 계산할 수 있다.
+
+\subsection{엔탈피}
+
+엔탈피는 열역학에서 중요한 상태 함수로, 일정 압력하에서 시스템이 흡수하거나 방출하는 열을 나타내는 양이다. 아래와 같이 정의된다.
+
+\[
+H = U + pV
+\]
+
+여기서 \( H \)는 엔탈피, \( U \)는 내부 에너지, \( p \)는 압력, \( V \)는 부피이다. 엔탈피 변화(\( \Delta H \))는 화학 반응이 일어나는 동안 시스템이 흡수하거나 방출하는 열의 양을 의미한다.\\
+엔탈피 변화는 실험적으로 측정할 수 있으며, 흡열 반응에서는 \( \Delta H \)가 양의 값을, 방출 반응에서는 음의 값을 가진다.
+
+\subsection{헤스의 법칙}
+
+헤스의 법칙(Hess's Law)은 화학 반응의 엔탈피 변화가 반응 경로와 관계없이 일정하다는 법칙이다. 즉, 반응이 여러 단계를 거쳐 진행되더라도 전체 반응에서의 엔탈피 변화는 각 단계별 엔탈피 변화의 합과 같다는 것이다.\\
+헤스의 법칙은 엔탈피가 상태 함수라는 성질에 기반한다. 상태 함수는 경로에 상관없이 초기 상태와 최종 상태에 의해서만 결정되므로, 화학 반응이 어떤 경로를 통해 일어나든지 전체 엔탈피 변화는 동일하다.\\
+이를 수식으로 나타내면 다음과 같다:
+
+\[
+\Delta H_{\text{total}} = \sum \Delta H_{\text{steps}}
+\]
+
+실험에서는 반응을 여러 단계로 나누어 각 단계의 엔탈피 변화를 측정하고, 전체 반응의 엔탈피 변화와 비교함으로써 헤스의 법칙을 검증할 수 있다. 또한 전체 반응을 직접 진행하여 엔탈피 변화를 한 번에 측정한 결과와 비교함으로써, 두 결과가 일치함을 확인할 수 있다.
+
+\section{실험 기구 및 시약}
+\subsection{실험 기구 및 시약}
+\begin{itemize}
+    \item 250mL 비커 3개, 메스실린더, 온도계, 저울, 단열재 스티로폼, NaOH(s) 약간, 0.5M NaOH(aq), 0.5M HCl, Mg turning, MgO
+\end{itemize}
+
+\subsection{실험 기구의 용도}
+\subsubsection{단열재 스티로폼}
+- 반응 용기인 비커와 외부 간 열출입을 막아 반응 엔탈피를 정확히 측정할 수 있도록 한다.
+
+\subsection{시약 및 유의사항\cite{MSDS}}
+
+\subsubsection{0.5M 수산화나트륨 수용액 (0.5M NaOH)} 
+\begin{itemize} 
+\item \textbf{IUPAC 이름}: Sodium hydroxide solution 
+\item \textbf{화학식}: NaOH (수용액) 
+\item \textbf{화학식량}: 39.997 g/mol (NaOH 기준) 
+\item \textbf{물리적 성질}: 무색 액체, 끓는점 약 100°C (수용액), 밀도 약 1.02 g/cm³ (0.5M 수용액) 
+\item \textbf{유의 사항}: 강염기성, 피부 및 눈에 심각한 손상 가능, 보호장갑 및 고글 착용 필수. 엎질렀을 경우 다량의 물로 즉시 세척. 
+\end{itemize}
+
+\subsubsection{0.5M 염산 수용액 (0.5M HCl)} 
+\begin{itemize} 
+\item \textbf{IUPAC 이름}: Hydrochloric acid solution 
+\item \textbf{화학식}: HCl (수용액) 
+\item \textbf{화학식량}: 36.46 g/mol (HCl 기준) 
+\item \textbf{물리적 성질}: 무색 액체, 끓는점 약 100°C (수용액), 밀도 약 1.02 g/cm³ (0.5M 수용액) 
+\item \textbf{유의 사항}: 강산성, 피부 및 눈에 화학적 화상 가능, 보호장갑 및 고글 착용 필수. 통풍 잘 되는 곳에서 사용. 엎질렀을 경우 즉시 물로 세척. 
+\end{itemize}
+
+\subsubsection{마그네슘 턴닝 (Mg turning)} 
+\begin{itemize} 
+\item \textbf{IUPAC 이름}: Magnesium 
+\item \textbf{화학식}: Mg 
+\item \textbf{화학식량}: 24.305 g/mol 
+\item \textbf{물리적 성질}: 은회색 고체(턴닝 형태: 얇은 띠나 조각), 녹는점 650°C, 끓는점 1090°C, 밀도 1.738 g/cm³ 
+\item \textbf{유의 사항}: 가연성 물질(특히 분말이나 얇은 턴닝 형태일 때). 고온에서 산소와 급격히 반응하여 화재 위험 있음. 화재 시 물 사용 금지(마그네슘-물 반응). 모래나 Class D 소화기로 진압. 
+\end{itemize}
+
+\subsubsection{산화마그네슘 (MgO)} 
+\begin{itemize} 
+\item \textbf{IUPAC 이름}: Magnesium oxide 
+\item \textbf{화학식}: MgO 
+\item \textbf{화학식량}: 40.30 g/mol 
+\item \textbf{물리적 성질}: 백색 고체, 녹는점 2852°C, 끓는점 3600°C, 밀도 3.58 g/cm³ 
+\item \textbf{유의 사항}: 상대적으로 안정하지만, 분진 흡입 시 호흡기 자극 가능. 실험 시 분진 발생 방지 필요, 필요시 마스크 착용. \end{itemize}
+
+\section{실험 과정\cite{book}}
+
+\subsection{중화 반응}
+\subsubsection{$\Delta H_1$의 측정}
+\begin{enumerate}
+    \item 250mL 비커의 무게를 0.1g 단위까지 측정 후, 단열을 위해 스티로폼 컵에 넣는다.
+    \item 비커에 1M HCl(aq) 100mL를 넣고 $0.1\degree C$ 단위까지 온도를 측정한다.
+    \item NaOH 4.00g을 넣고 흔든다. 이때 칭량 종이의 무게를 미리 측정한 후 같이 넣는다.
+    \item 최고 온도를 기록하고, 조금 기다린 후 비커의 무게를 측정한다.
+\end{enumerate}
+
+\subsubsection{$\Delta H_2$의 측정}
+\begin{enumerate}
+    \item 위의 2.에서 1M HCL(aq) 100mL 대신 증류수 100mL를 넣고 위 과정을 반복한다.
+\end{enumerate}
+
+\subsubsection{$\Delta H_2$의 측정}
+\begin{enumerate}
+    \item 250mL 비커의 무게를 0.1g 단위까지 측정 후, 단열을 위해 스티로폼 컵에 넣는다.
+    \item 비커에 2M HCl(aq) 50mL를 넣고 $0.1\degree C$ 단위까지 온도를 측정한다.
+    \item 메스실린더에 2M NaOH(aq) 50mL를 넣고 온도가 HCL(aq)와 같은지 확인한다.
+    \item NaOH(aq)를 재빨리 HCl(aq)에 넣는다.
+    \item 최고 온도를 기록하고, 조금 기다린 후 비커의 무게를 측정한다. 
+\end{enumerate}
+
+\subsection{MgO의 표준 생성 엔탈피}
+\subsubsection{$\Delta H_1$의 측정}
+\begin{enumerate}
+    \item 250mL 비커의 무게를 0.1g 단위까지 측정 후, 단열을 위해 스티로폼 컵에 넣는다.
+    \item 비커에 1M HCl(aq) 100mL를 넣고 $0.1\degree C$ 단위까지 온도를 측정한다.
+    \item Mg turning 0.60g을 넣고 흔든다. 이때 칭량 종이는 넣지 않는다.
+    \item 최고 온도를 기록하고, 조금 기다린 후 비커의 무게를 측정한다.
+\end{enumerate}
+
+\subsubsection{$\Delta H_2$의 측정}
+\begin{enumerate}
+    \item 위의 3.에서 Mg turning 0.60g 대신 MgO 1.00g을 넣고 위 과정을 반복한다. 이때는 칭량 종이의 무게를 미리 측정한 후 같이 넣는다.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{phychem}
+Peter Atkins, Physical Chemistry (Ninth edition), W. H. Freeman and Company, p.44-93
+\bibitem{MSDS}
+Safety Data Sheets, 검색어: Sunset Yellow FCF, Brilliant Blue FCF, ethanol, \url{https://chemicalsafety.com/sds-search/}
+\bibitem{book}
+김희준, 일반화학실험, 자유아카데미, p.103-111
+\end{thebibliography}
+
+\end{document}
+'''
+
+이 코드를 컴파일하면 [요런 보고서 pdf](./assets/hesslawprep.pdf)를 얻을 수 있다!
