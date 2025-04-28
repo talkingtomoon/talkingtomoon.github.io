@@ -177,4 +177,4 @@ Safety Data Sheets, 검색어: Sunset Yellow FCF, Brilliant Blue FCF, ethanol, \
 \end{document}
 '''
 
-이 코드를 컴파일하면 [요런 보고서 pdf](./assets/hesslawprep.pdf)를 얻을 수 있다!
+이 코드를 컴파일하면 [요런 보고서 pdf](/assets/hesslawprep.pdf)를 얻을 수 있다!
